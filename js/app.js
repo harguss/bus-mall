@@ -164,6 +164,8 @@ if(totalClicks >= rounds){
 
   for(let i = 0; i < allProducts.length; i ++){
     
+
+    
   }//closes the for loop
   
   //remove event listener
