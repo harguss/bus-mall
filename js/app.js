@@ -1,11 +1,7 @@
 'use strict';
 console.log('app js is connected');
 
-
-2.// Fix and another condition
-// Once the users ‘clicks’ a product,
-// generate three new products for the user to pick from.
-// Create an algorithm that will randomly generate three unique product images 
+ 
 7.
 // Add a button with the text View Results,
 // list items report of results after all rounds of voting have concluded 
