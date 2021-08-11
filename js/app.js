@@ -2,8 +2,39 @@
 console.log('app js is connected');
 
 
+2.// Fix and another condition
+// Once the users ‘clicks’ a product,
+// generate three new products for the user to pick from.
+// Create an algorithm that will randomly generate three unique product images 
+7.
+// Add a button with the text View Results,
+// list items report of results after all rounds of voting have concluded 
+// number of times seen for each. Example: banana had 3 votes, and was seen 5 times.
+10.
+// which when clicked displays the list of all the products followed by the votes received, 
 
-//These are in an html collection(array) use ref to image index instead of id's for tracking images shown we are still going to count total clicks and each image's click amount.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //global variables
 let imageElements = document.getElementsByTagName('img');
@@ -14,7 +45,7 @@ let productIndex1 = 0;
 let productIndex2 = 1;
 let productIndex3 = 2;
 
-let rounds = 5;
+let rounds = 25;
 let allProducts = [];
 
 //Constructor function 
@@ -53,7 +84,7 @@ new Product('Pen', 'images/pen.jpg');
 new Product('Pen-sweep', 'images/pet-sweep.jpg');
 new Product('Scissors', 'images/scissors.jpg');
 new Product('Shark', 'images/shark.jpg');
-new Product('Tauntaun', 'images/tauntaun.png');
+new Product('Tauntaun', 'images/tauntaun.jpg');
 new Product('Unicorn', 'images/unicorn.jpg');
 new Product('Water-can', 'images/water-can.jpg');
 new Product('Wine-glass', 'images/wine-glass.jpg');
@@ -70,44 +101,36 @@ function imageWasClicked(event){
 //count total clicks
 totalClicks = totalClicks + 1;
 
-//what was clicked on and lets increment the count for clicked on.
-
-
-
-
-
-
-
-
-
-// let nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
-// let nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
-// let nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
-
-
-// while((nextProductIndex1 === productIndex1) || (nextProductIndex2 === nextProductIndex1)){
-//   nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
-//  }
-// while((nextProductIndex2 === productIndex2) || (nextProductIndex2 === nextProductIndex1)){
-//   nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
-// }
-// while((nextProductIndex1 === productIndex3) || (nextProductIndex3 === nextProductIndex1)){
-//   nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
-// }
-
-
 //choose new images to render from click to click
 let nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
 
-while((nextProductIndex1 === productIndex1) || (nextProductIndex2 === nextProductIndex1)){
+while((nextProductIndex1 === productIndex1)     ||
+      (nextProductIndex1 === productIndex2)     || 
+      (nextProductIndex1 === productIndex3)     || 
+      (nextProductIndex1 === nextProductIndex2) || 
+      (nextProductIndex1 === nextProductIndex3)  
+){
   nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
 }
-while((nextProductIndex2 === productIndex2) || (nextProductIndex2 === nextProductIndex1)){
+while(
+  (nextProductIndex2 === productIndex1) || 
+  (nextProductIndex2 === productIndex2) || 
+  (nextProductIndex2 === productIndex3) ||
+  (nextProductIndex2 === nextProductIndex1) ||
+  (nextProductIndex2 === nextProductIndex3)
+  ){
   nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
 }
-while((nextProductIndex3 === productIndex3) || (nextProductIndex2 === nextProductIndex1)){
+while(
+   (nextProductIndex3 === productIndex1) ||
+   (nextProductIndex3 === productIndex2) ||
+   (nextProductIndex3 === productIndex3) ||
+   (nextProductIndex3 === nextProductIndex1) ||
+   (nextProductIndex3 === nextProductIndex2)
+  
+  ){
   nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
 }
 
@@ -132,18 +155,6 @@ imageElements[0].src = allProducts[productIndex1].imageURL;
 
 
 
-   if(totalClicks >= rounds){
-    let footerElement = document.getElementsByTagName('footer');
-    //remove the fires child the h2
-    if(footerElement.firstChildElement){
-      footerElement.firstChildElement.remove();
-    }
-
-
-
-
-
-//and update the timesshown
 
 
 if(totalClicks >= rounds){
@@ -187,7 +198,7 @@ if(totalClicks >= rounds){
 
 // function runMyChartsNow(){
 
- }
+ //}
 
 
 
