@@ -1,9 +1,67 @@
-body{
-  background-color: rgba(238, 173, 173, 0.479);
-}
+ * {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  body {
+    width: 1300px;
+    margin: 0 auto;
+    background-color: rgb(207, 232, 238);
+  }
+  
+  main{
+    text-align: center;
+    background-color: whitesmoke;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
 
+  h1{
+    font-family: 'Russo One', sans-serif;
+    font-size: 60px;
+    margin:10px;
+  }
+  h2{
+    font-family: 'Recursive', sans-serif;
+    font-size: 30px;
+  }
+      
+  
+  
+  body{
+    font-family: 'Recursive', sans-serif;
+  }
 
-img{
-  height: 300px;
-  width: 300px;
-} 
+  
+  
+   aside {
+    height: 350px;
+    width: 350px;
+    background-color: rgba(209, 217, 226, 0.8);
+    float: left;
+    margin-top: 25;
+    margin-left: 25px;
+    padding: 50px;
+  } */
+
+  header{
+    margin-bottom: 15px;
+  }
+  img {
+    margin-top: 75px;
+    height: 300px;
+    width: 300px;
+  }
+  
+  footer{
+    text-align: center;
+    margin-top: 50px;
+    background-color: whitesmoke;
+    color: rgb(17,20,202);
+    font-size: 35px;
+    padding: 30px;
+    border-top: 10px solid rgb(216, 42, 26);
+  }
+  
