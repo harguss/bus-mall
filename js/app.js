@@ -30,8 +30,12 @@ function Product(name, imageURL){
   this.timesClicked = 0;
   this.timesShown = 0;
   allProducts.push(this);
+
+
 }
-console.log('this is all of the objects made by the constructor',allProducts);
+console.log('this is all of the objects made by the constructor',allProducts)
+
+
 
 //populate chart with object data.
 function getProductArray(nameOfThePropertyIWant){
@@ -40,12 +44,31 @@ function getProductArray(nameOfThePropertyIWant){
     answer[i] = allProducts[i][nameOfThePropertyIWant];
   }
   console.log(answer);
-  return answer;
+  return answer; 
+}
 
- }
+
+ let savedProductString = localStorage.getItem('savedProduct');
+
+// console.log('this is the objects in string form', savedProductString);
 
 
-// actually create our Products's
+
+if(savedProductString){
+  // parse our string into object
+  let arrayOfNotProductObject = JSON.parse(savedProductString);
+  console.log('if condition what is our type ',arrayOfNotProductObject);
+  //once we have object we are going to run them through our constructor function so that they are Product objects.
+  for(let j = 0; j < arrayOfNotProductObject.length; j++){
+    new Product(
+      arrayOfNotProductObject[j].name,
+      arrayOfNotProductObject[j].imageURL,
+      arrayOfNotProductObject[j].timesClicked,
+      arrayOfNotProductObject[j].timesShown
+    );
+  }
+} else {
+ // actually create our Products's
 new Product('Bag', 'images/bag.jpg');
 new Product('Banana', 'images/banana.jpg');
 new Product('Bathroom', 'images/bathroom.jpg');
@@ -65,8 +88,9 @@ new Product('Unicorn', 'images/unicorn.jpg');
 new Product('Water-can', 'images/water-can.jpg');
 new Product('Wine-glass', 'images/wine-glass.jpg');
 new Product('Sweep', 'images/sweep.png');
-
-
+}
+allProducts[0].timesShown = 1;
+allProducts[1].timesShown = 1;
 
 
 let totalClicks = 0;
@@ -76,6 +100,12 @@ function imageWasClicked(event){
   console.log(' click event',event.target);
 //count total clicks
 totalClicks = totalClicks + 1;
+
+if(event.srcElement.id === '1'){
+  allProducts[productIndex1].timesClicked++;
+} else if(event.srcElement.id === '2'){
+  allProducts[productIndex2].timesClicked++;
+}
 
 //choose new images to render from click to click
 let nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
